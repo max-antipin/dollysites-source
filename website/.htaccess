@@ -1,0 +1,43 @@
+RewriteEngine On
+Options +FollowSymlinks
+
+# "static" content
+#<FilesMatch "\.(jpg|jpeg|gif|png|ico)$">
+#ExpiresDefault A31536000
+#Header append Cache-Control "public"
+#</FilesMatch>
+
+# ----------------------------------------------------------------------
+# CORS-enabled images (@crossorigin)
+# ----------------------------------------------------------------------
+# Send CORS headers if browsers request them; enabled by default for images.
+# developer.mozilla.org/en/CORS_Enabled_Image
+# blog.chromium.org/2011/07/using-cross-domain-images-in-webgl-and.html
+# hacks.mozilla.org/2011/11/using-cors-to-load-webgl-textures-from-cross-domain-images/
+# wiki.mozilla.org/Security/Reviews/crossoriginAttribute
+<IfModule mod_setenvif.c>
+  <FilesMatch "\.(gif|png|jpe?g|svg|svgz|ico|webp)$">
+    SetEnvIf Origin ":" IS_CORS
+    Header set Access-Control-Allow-Origin "*" env=IS_CORS
+  </FilesMatch>
+</IfModule>
+# ----------------------------------------------------------------------
+# Webfont access
+# ----------------------------------------------------------------------
+# Allow access from all domains for webfonts.
+# Alternatively you could only whitelist your
+# subdomains like "subdomain.example.com".
+<FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2|font.css|css|js)$">
+  Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+#RewriteCond %{REQUEST_FILENAME} -d
+#RewriteCond %{REQUEST_FILENAME}/index\.(php|html) !-f
+#RewriteRule ^(.+)/$ /index.php [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^.*$ /index.php [L,QSA]
+
+#ErrorDocument 403 /index.php
+#ErrorDocument 404 /index.php

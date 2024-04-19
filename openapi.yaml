@@ -1,0 +1,86 @@
+openapi: 3.0.0
+info:
+  title: Version and Order API
+  description: API to retrieve current application version, date, and order information
+  version: 1.0.0
+paths:
+  '/v1/version':
+    get:
+      summary: Get current version and date (API Version 1)
+      operationId: getVersionV1
+      responses:
+        '200':
+          $ref: '#/components/responses/SuccessResponse'
+        '400':
+          description: Invalid request
+        '404':
+          description: Resource not found
+  '/v2/version':
+    get:
+      summary: Get current version and date (API Version 2)
+      operationId: getVersionV2
+      responses:
+        '200':
+          $ref: '#/components/responses/SuccessResponse'
+        '400':
+          description: Invalid request
+        '404':
+          description: Resource not found
+  '/order/{id}':
+    get:
+      summary: Get order by ID
+      operationId: getOrderById
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID of the order to retrieve
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '400':
+          description: Invalid request
+        '404':
+          description: Order not found
+
+components:
+  responses:
+    SuccessResponse:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              version:
+                type: string
+                example: "1.0.0"
+                description: Current application version
+              date:
+                type: string
+                format: date-time
+                example: "2024-04-05T12:00:00Z"
+                description: Current date and time
+  schemas:
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+          description: ID of the order
+        price:
+          type: number
+          format: float
+          example: 10.99
+          description: Price of the order
+        description:
+          type: string
+          example: "Product ABC"
+          description: Description of the order

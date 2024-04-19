@@ -1,0 +1,19 @@
+access_log off;
+
+server {
+    listen ${APP_PORT};
+    server_name ${APP_HOST};
+    root /var/www/html/public/;
+
+    location / {
+        fastcgi_pass php:9000;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root/index.php;
+    }
+}
+
+server {
+    listen ${APP_PORT} default_server;
+    server_name _;
+    return 404;
+}

@@ -1,0 +1,19 @@
+server {
+    set $pma_root /var/www/html;
+
+    listen       ${APP_PORT};
+    server_name  pma.${APP_HOST};
+    root         $pma_root/pma;
+    index        index.php;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        fastcgi_pass phpmyadmin:9000;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $pma_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}

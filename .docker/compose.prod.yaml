@@ -1,0 +1,31 @@
+version: '3.8'
+name: merchant-portal-backend
+services:
+  php:
+    build:
+      context: ../.
+      dockerfile: ./.docker/Dockerfile
+      target: app_prod
+    container_name: ${COMPOSE_PROJECT_NAME}-app
+    image: rncb-ecom/${COMPOSE_PROJECT_NAME}-app
+    restart: unless-stopped
+  webserver:
+    extends:
+      file: compose.yaml
+      service: webserver
+  sqldb:
+    extends:
+      file: compose.yaml
+      service: sqldb
+configs:
+  nginx_conf:
+    file: ./nginx/default.conf.template
+secrets:
+  db_name:
+    file: ../.secrets/db-name
+  db_passwd:
+    file: ../.secrets/db-passwd
+  db_user:
+    file: ../.secrets/db-user
+volumes:
+  pgdata:

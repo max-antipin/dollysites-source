@@ -1,0 +1,8 @@
+src/PSR4Autoloader.php
+src/system/
+.env
+.env.*
+!.env.dist
+!.env.*.dist
+.phpunit.result.cache
+/vendor/
