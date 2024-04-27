@@ -1,5 +1,0 @@
-@import url('/common.css');
-html {height: 100%;  }
-a {color: #2fa3e7;text-decoration: none }
-a:focus, a:hover {color: #157ab5;text-decoration: none  }
-body {font-family: 'PT Sans', Arial, sans-serif;font-size: 16px;height: 100%;margin: 0;  }

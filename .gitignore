@@ -2,6 +2,9 @@
 .env.*
 !.env.dist
 !.env.*.dist
+.openapi-generator/
+/openapi-demo-output*/
+/tpl-demo/
 #.phpunit.result.cache
 /vendor/
 ###> phpunit/phpunit ###
@@ -23,3 +26,7 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+###> phpstan/phpstan ###
+phpstan.neon
+###< phpstan/phpstan ###
