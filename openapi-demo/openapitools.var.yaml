@@ -1,0 +1,6 @@
+dry-run:
+  add:
+    generator-cli:
+      generators:
+        v3.0:
+          dryRun: true

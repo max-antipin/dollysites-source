@@ -1,0 +1,32 @@
+openapi: 3.1.0
+info:
+  title: DollySites test web-site API
+  description: API to retrieve test cases information
+  version: 1.0.0
+paths:
+  '/list-urls':
+    get:
+      summary: List URLs of test pages
+      operationId: listURLs
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/test-page-url'
+components:
+  schemas:
+    test-page-url:
+      type: object
+      properties:
+        url:
+          type: string
+          example: 'https://example.com/'
+          description: URL of the test page
+        description:
+          type: string
+          example: 'Page for testing...'
+          description: Description of the test page

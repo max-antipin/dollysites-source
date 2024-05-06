@@ -6,12 +6,13 @@
     "generators": {
       "v3.0": {
         "generatorName": "php-symfony",
+        "templateDir": "openapi-demo/custom-templates",
         "output": "openapi-demo-output/",
         "inputSpec": "openapi-demo/openapi.yaml",
         "ignoreFileOverride": "openapi-demo/.openapi-generator-ignore",
         "additionalProperties": {
           "srcBasePath": "source/",
-          "invokerPackage": "App\\OpenAPI"
+          "bundleName": "GeneratedAPI"
         },
         "enablePostProcessFile": true
       }
