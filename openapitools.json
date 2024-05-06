@@ -6,10 +6,10 @@
     "generators": {
       "v3.0": {
         "generatorName": "php-symfony",
-        "output": ".",
-        "inputSpec": "./openapi.yaml",
+        "output": "./openapi-demo/",
+        "inputSpec": "./openapi-demo/openapi.yaml",
         "additionalProperties": {
-          "srcBasePath": "../src/OpenAPI",
+          "srcBasePath": "./source/",
           "invokerPackage": "App\\OpenAPI"
         },
         "enablePostProcessFile": true
