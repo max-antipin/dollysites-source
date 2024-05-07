@@ -3,3 +3,5 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+server_api:
+    resource: "@ServerAPIBundle/Resources/config/routing.yaml"

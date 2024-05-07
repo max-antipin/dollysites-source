@@ -25,5 +25,4 @@
 **/openapi-demo-output-1/.*
 **/openapi-demo-output-1/*.php
 **/openapi-demo-output-1/*.sh
-**/OpenAPI/Service/**
 **/Tests/

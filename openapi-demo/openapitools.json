@@ -26,8 +26,7 @@
           "bundleAlias": "server_api",
           "invokerPackage": "App\\OpenAPI"
         },
-        "enablePostProcessFile": true,
-        "dryRun": true
+        "enablePostProcessFile": true
       }
     }
   }
