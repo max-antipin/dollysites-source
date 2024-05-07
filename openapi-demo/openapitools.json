@@ -1,5 +1,5 @@
 {
-  "$schema": "./node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "$schema": "https://raw.githubusercontent.com/OpenAPITools/openapi-generator-cli/master/apps/generator-cli/src/config.schema.json",
   "spaces": 2,
   "generator-cli": {
     "version": "7.5.0",
@@ -7,14 +7,27 @@
       "v3.0": {
         "generatorName": "php-symfony",
         "templateDir": "openapi-demo/custom-templates",
-        "output": "openapi-demo-output/",
+        "output": "openapi-demo-output-0/",
+        "inputSpec": "openapi-demo/openapi.yaml",
+        "additionalProperties": {
+          "srcBasePath": "source/"
+        },
+        "enablePostProcessFile": true
+      },
+      "v3.5": {
+        "generatorName": "php-symfony",
+        "templateDir": "openapi-demo/custom-templates",
+        "output": "openapi-demo-output-1/",
         "inputSpec": "openapi-demo/openapi.yaml",
         "ignoreFileOverride": "openapi-demo/.openapi-generator-ignore",
         "additionalProperties": {
-          "srcBasePath": "source/",
-          "bundleName": "GeneratedAPI"
+          "srcBasePath": "../src/OpenAPI/",
+          "bundleName": "ServerAPI",
+          "bundleAlias": "server_api",
+          "invokerPackage": "App\\OpenAPI"
         },
-        "enablePostProcessFile": true
+        "enablePostProcessFile": true,
+        "dryRun": true
       }
     }
   }

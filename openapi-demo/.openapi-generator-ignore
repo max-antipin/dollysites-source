@@ -21,4 +21,9 @@
 #docs/*.md
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
-*.php
+#**/.openapi-generator-ignore
+**/openapi-demo-output-1/.*
+**/openapi-demo-output-1/*.php
+**/openapi-demo-output-1/*.sh
+**/OpenAPI/Service/**
+**/Tests/
