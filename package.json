@@ -1,5 +1,5 @@
 {
-  "name": "dollysites-source",
+  "name": "symfony-sandbox",
   "version": "1.0.0",
   "main": "index.js",
   "directories": {
@@ -10,13 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/max-antipin/dollysites-source.git"
+    "url": "git+https://github.com/max-antipin/symfony-sandbox.git"
   },
   "author": "Max Antipin <max.v.antipin@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/max-antipin/dollysites-source/issues"
+    "url": "https://github.com/max-antipin/symfony-sandbox/issues"
   },
-  "homepage": "https://github.com/max-antipin/dollysites-source#readme",
+  "homepage": "https://github.com/max-antipin/symfony-sandbox#readme",
   "description": ""
 }
